@@ -1,25 +1,38 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'; // Importe o axios
 import "../style/login.css";
-import logo from "../img/logo.png"; 
-import background from "../img/frotaLogin.jpg";  
+import logo from "../img/logo.png";
+import background from "../img/frotaLogin.jpg";
 
 const Login = () => {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Dados de Login:", { usuario, senha });
-
-    navigate("/menu"); 
-  };
+  event.preventDefault();
+  // O endereço deve corresponder ao do seu servidor back-end
+  axios.post('http://localhost:3001/login', { usuario, senha })
+    .then(res => {
+      // Verificamos o status da resposta do back-end
+      if (res.data.status === "Success") {
+        console.log("Login bem-sucedido!");
+        navigate("/menu");
+      } else {
+        // Exibe a mensagem de erro vinda do back-end
+        alert(res.data.message || "Usuário ou senha incorretos!");
+      }
+    })
+    .catch(err => {
+      console.error("Erro na requisição de login:", err);
+      alert("Ocorreu um erro ao tentar fazer login. Verifique o console.");
+    });
+};
 
   return (
     <div className="login__caixa">
       <img src={logo} alt="Logo da empresa" className="login__logo" />
-      
 
       <form onSubmit={handleSubmit} style={{ width: "100%" }}>
         <h1>Login</h1>
@@ -44,10 +57,6 @@ const Login = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-        </div>
-
-        <div className="login__links">
-          <a href="#">Esqueceu a Senha?</a>
         </div>
 
         <button type="submit" className="login__botao">

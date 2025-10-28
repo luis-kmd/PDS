@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Cog, Search, X, Check } from "lucide-react";
-import axios from "axios"; // Importante ter o axios
+import axios from "axios"; 
 import logo from "../img/logo.png";
 import "../style/setores.css";
 
@@ -26,7 +26,7 @@ export default function Setores() {
   const [mensagemModal, setMensagemModal] = useState("");
   const [setorParaExcluir, setSetorParaExcluir] = useState(null);
 
-  // Carregar setores do backend
+  // CARREGA OS SETORES DO BACKEND
   useEffect(() => {
     const carregarSetores = async () => {
       try {
@@ -78,7 +78,7 @@ export default function Setores() {
       } else {
         // CRIAR SETOR
         const response = await axios.post(`${API_URL}/setores`, { nome });
-        setSetores([...setores, response.data]); // Adiciona o novo setor na lista
+        setSetores([...setores, response.data]); 
         setMensagemModal("Cadastro efetuado com sucesso!");
       }
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'; // Importe o axios
+import axios from 'axios';
 import "../style/login.css";
 import logo from "../img/logo.png";
 import background from "../img/frotaLogin.jpg";
@@ -10,23 +10,25 @@ const Login = () => {
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+
+const handleSubmit = (event) => {
   event.preventDefault();
-  // O endereço deve corresponder ao do seu servidor back-end
   axios.post('http://localhost:3001/login', { usuario, senha })
     .then(res => {
-      // Verificamos o status da resposta do back-end
       if (res.data.status === "Success") {
-        console.log("Login bem-sucedido!");
+        // UTILIZA DADOS DO BACKEND
+        const { usuario } = res.data;
+        
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+        
         navigate("/menu");
       } else {
-        // Exibe a mensagem de erro vinda do back-end
-        alert(res.data.message || "Usuário ou senha incorretos!");
+        alert(res.data.message);
       }
     })
     .catch(err => {
       console.error("Erro na requisição de login:", err);
-      alert("Ocorreu um erro ao tentar fazer login. Verifique o console.");
+      alert("Ocorreu um erro ao tentar fazer login.");
     });
 };
 

@@ -1,0 +1,91 @@
+/* Estilos básicos para a página de funcionários, pode customizar como quiser */
+.pagina__funcionarios {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.funcionarios__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f2f2f2;
+  padding: 15px 40px;
+}
+
+.funcionarios__header .logo {
+  height: 70px;
+}
+
+.titulo__central__funcionarios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 27px;
+  font-weight: bold;
+  color: #000;
+  margin: 10px 0 20px 0;
+}
+
+.titulo__central__funcionarios h1 {
+  color: #000;
+}
+
+.tabela__container__funcionarios th:nth-child(2),
+.tabela__container__funcionarios td:nth-child(2) {
+  width: 30%; /* Largura da coluna Nome */
+}
+
+.formulario__container__funcionarios {
+    background: #d9d9d9;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    align-items: center;
+}
+
+.formulario__titulo__funcionarios {
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+    background: #737373;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.formulario__campo__funcionarios {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formulario__campo__funcionarios label {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+.formulario__campo__funcionarios input,
+.formulario__campo__funcionarios select {
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #000;
+}
+
+.formulario__acoes__funcionarios {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

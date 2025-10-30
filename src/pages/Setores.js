@@ -212,9 +212,9 @@ export default function Setores() {
               </thead>
               <tbody>
                 {setoresFiltrados.length > 0 ? (
-                  setoresFiltrados.map((setor) => (
+                  setoresFiltrados.map((setor, index) => (
                     <tr key={setor.id}>
-                      <td>{setor.id}</td>
+                      <td>{index + 1}</td>
                       <td>{setor.nome}</td>
                       <td style={{ textAlign: "right", paddingRight: "60px" }}>
                         <button className="editar" onClick={() => handleEditar(setor)}>

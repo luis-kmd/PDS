@@ -210,9 +210,9 @@ export default function Modelos() {
               </thead>
               <tbody>
                 {modelosFiltrados.length > 0 ? (
-                  modelosFiltrados.map((modelo) => (
+                  modelosFiltrados.map((modelo, index) => ( 
                     <tr key={modelo.id}>
-                      <td>{modelo.id}</td>
+                      <td>{index + 1}</td> 
                       <td>{modelo.nome}</td>
                       <td>{modelo.marca}</td>
                       <td className="acao__botoes__modelo">

@@ -9,8 +9,8 @@ app.use(cors());
 // CONEXAO COM O BANCO DE DADOS
 const db = mysql.createConnection({
   host: 'localhost',          
-  user: 'kmd',               
-  password: 'Eloisa-gabi1992', 
+  user: 'user',               
+  password: 'password', 
   database: 'transvicon'     
 });
 

@@ -1,0 +1,58 @@
+/* src/style/novaordem.css */
+.pagina__novaordem {
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.container__novaordem {
+    background: #d9d9d9;
+    padding: 25px 40px;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 900px;
+    display: grid;
+    /* 2 colunas */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    align-items: center;
+}
+
+.novaordem__titulo {
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+    background: #666;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "Chau Philomene One", sans-serif;
+}
+
+/* Campo de problema (ocupa 2 colunas) */
+.campo__problema {
+    grid-column: 1 / -1;
+}
+
+.campo__problema textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Ações (ocupa 2 colunas) */
+.novaordem__acoes {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}

@@ -1,0 +1,83 @@
+/* src/style/detalheordem.css */
+.pagina__detalheordem {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.detalhe__container {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+/* Resumo da OS */
+.detalhe__resumo {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 colunas */
+  gap: 20px 30px;
+  border: 1px solid #ccc;
+}
+
+.detalhe__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detalhe__item label {
+  font-size: 18px;
+  color: #666;
+  font-family: "Open Sans", sans-serif;
+}
+
+.detalhe__item span {
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+  font-family: "Chau Philomene One", sans-serif;
+}
+
+.detalhe__item_full {
+  grid-column: 1 / -1; /* Ocupa 3 colunas */
+}
+
+/* Seções de Adicionar */
+.detalhe__secoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.secao__container {
+  background: #d9d9d9;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.secao__container h2 {
+  text-align: center;
+  color: #000;
+  font-family: "Chau Philomene One", sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Formulário de adicionar */
+.secao__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Tabela de itens adicionados */
+.secao__tabela {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fff;
+}

@@ -72,16 +72,29 @@ export default function Motoristas() {
       return;
     }
 
+    // LIMPA CPF PARA COMPARAÇÃO E VALIDAÇÃO
+    const cpfLimpo = cpf.replace(/\D/g, "");
+
+    const duplicado = motoristas.some((m) =>
+      m.cpf === cpfLimpo && 
+      m.id_motorista !== motoristaEditando?.id_motorista 
+    );
+
+    if (duplicado) {
+      setErroValidacao("Já existe um motorista cadastrado com este CPF.");
+      return; 
+    }
+
     setErroValidacao("");
     setCarregando(true);
 
     const novoMotorista = {
       nome,
-      cpf: cpf.replace(/\D/g, ""), // FORMATA O CPF
+      cpf: cpfLimpo, 
       cnh, 
       situacao,
       data_admissao: dataAdmissao,
-      data_demissao: dataDemissao || null, // GARANTE QUE ACEITE NULL
+      data_demissao: dataDemissao || null, 
     };
 
     try {

@@ -64,6 +64,16 @@ export default function Pecas() {
       setErroValidacao("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
+
+    const duplicado = pecas.some((p) =>
+      p.descricao.toLowerCase() === descricao.toLowerCase() &&
+      p.id !== pecaEditando?.id
+    );
+
+    if (duplicado) {
+      setErroValidacao("Já existe uma peça cadastrada com esta descrição.");
+      return;
+    }
     setErroValidacao("");
     setCarregando(true);
 

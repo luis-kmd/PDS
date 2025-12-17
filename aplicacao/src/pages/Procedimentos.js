@@ -60,6 +60,18 @@ export default function Procedimentos() {
       setErroValidacao("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
+
+    const duplicado = procedimentos.some((p) =>
+      p.descricao.toLowerCase() === descricao.toLowerCase() &&
+      p.id_setor === parseInt(idSetor) &&
+      p.id !== procedimentoEditando?.id
+    );
+
+    if (duplicado) {
+      setErroValidacao("Já existe um procedimento com esta descrição neste setor.");
+      return;
+    }
+    
     setErroValidacao("");
     setCarregando(true);
 
